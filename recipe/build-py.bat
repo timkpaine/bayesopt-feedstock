@@ -1,6 +1,3 @@
-del python/bayesopt.cpp
-cython python/bayesopt.pyx --cplus
-
 set "CXXFLAGS=%CXXFLAGS% -DBOOST_TIMER_ENABLE_DEPRECATED=1"
 
 cd build
