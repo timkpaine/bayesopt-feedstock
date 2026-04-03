@@ -9,7 +9,7 @@ source:
   sha256: f4e60cfac380eccd2d1adc805b752b5bd22a1d8a27dc6aeb630c403adc04f28c
 
 build:
-  number: 8
+  number: 9
   skip: True  # [not linux]
 
 requirements:
@@ -56,6 +56,7 @@ outputs:
         - libboost-headers
         - nlopt
         - numpy
+        - cython
         - python
         - pip
         - setuptools
