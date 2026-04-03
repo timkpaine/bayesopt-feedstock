@@ -2,14 +2,16 @@
 
 package:
   name: bayesopt
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/rmcantin/bayesopt/archive/v{{ version }}.tar.gz
   sha256: f4e60cfac380eccd2d1adc805b752b5bd22a1d8a27dc6aeb630c403adc04f28c
+  patches:
+    - bayesopt-pyx-python3.patch
 
 build:
-  number: 4
+  number: 5
   skip: True  # [not linux]
 
 requirements:
@@ -23,7 +25,6 @@ requirements:
     - libboost-headers
     - nlopt
     - numpy
-    - cython <3
     - python
     - pip
     - setuptools
@@ -57,7 +58,7 @@ outputs:
         - libboost-headers
         - nlopt
         - numpy
-        - cython <3
+        - cython
         - python
         - pip
         - setuptools

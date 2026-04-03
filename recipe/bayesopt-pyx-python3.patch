@@ -1,0 +1,29 @@
+--- a/python/bayesopt.pyx	2026-04-03 14:15:06
++++ b/python/bayesopt.pyx	2026-04-03 14:15:06
+@@ -198,7 +198,7 @@
+     return params
+ 
+ cdef double callback(unsigned int n, const_double_ptr x,
+-                     double *gradient, void *func_data):
++                     double *gradient, void *func_data) noexcept:
+     try:
+         x_np = np.zeros(n)
+ 
+@@ -284,7 +284,7 @@
+     min_value = minf[0]
+     return min_value,np_x,error_code
+ 
+-def optimize_categorical(f, np.ndarray[np.int_t,ndim=1] np_categories,
++def optimize_categorical(f, np.ndarray[np.intp_t,ndim=1] np_categories,
+                          dict dparams):
+ 
+     cdef bopt_params params = dict2structparams(dparams)
+@@ -295,7 +295,7 @@
+     cdef np.ndarray np_x = np.zeros([nDim], dtype=np.double)
+ 
+     cdef np.ndarray[np.double_t, ndim=1, mode="c"] x
+-    cdef np.ndarray[np.int_t, ndim=1, mode="c"] categories
++    cdef np.ndarray[np.intp_t, ndim=1, mode="c"] categories
+ 
+     x  = np.ascontiguousarray(np_x,dtype=np.double)
+     categories = np.ascontiguousarray(np_categories,dtype=np.int)
