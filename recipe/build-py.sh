@@ -15,7 +15,7 @@ pyx.write_text(src)
 PY
 
 rm -f python/bayesopt.cpp
-cython python/bayesopt.pyx --cplus
+cython -3 python/bayesopt.pyx --cplus
 
 cd build
 cmake ${CMAKE_ARGS} \
